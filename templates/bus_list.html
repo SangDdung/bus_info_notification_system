@@ -1,0 +1,35 @@
+<html>
+	<head>
+		{% include 'common/common_head.html' %}
+	</head>
+	<body>
+		<div data-role="page" id="page1">
+			<div data-role="header">
+				{% include 'common/common_header.html' %}
+			</div>
+			<div data-role="content">
+				<table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+					<thead>
+					<tr>
+						<th data-priority="persist"> 버스번호 </th>
+						<th data-priority="1"> 버스 ID </th>
+						<th data-priority="2"> 선택 </th>
+					</tr>
+					</thead>
+					<tbody>
+					{% for i in range(0,bus_info['bus_id']|length) %}
+					<tr>
+						<th> {{bus_info['bus_name'][i]}} </th>
+						<td> {{bus_info['bus_id'][i]}} </td>
+						<td> <a href="bus_select_confirm?bus_id={{bus_info['bus_id'][i]}}&station_id={{station_id}}&bus_name={{bus_info['bus_name'][i]}}">선택</a> </td>
+					</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				{% include 'common/common_footer.html' %}
+			</div>
+		</div>
+	</body>
+</html>

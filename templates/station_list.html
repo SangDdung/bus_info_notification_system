@@ -1,0 +1,37 @@
+<html>
+	<head>
+		{% include 'common/common_head.html' %}
+	</head>
+	<body>
+		<div data-role="page" id="page1">
+			<div data-role="header">
+				{% include 'common/common_header.html' %}
+			</div>
+			<div data-role="content">
+				<table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+					<thead>
+					<tr>
+						<th data-priority="persist"> 정류소 </th>
+						<!--th> 정류소 ID </th-->
+						<th data-priority="1"> 위치 </th>
+						<th data-priority="2"> 선택 </th>
+					</tr>
+					</thead>
+					<tbody>
+					{% for i in range(0,station_info['station_id']|length) %}
+					<tr>
+						<th> <i>{{station_info['station_name'][i]}}</i> </th>
+						<!--td> {{station_info['station_id'][i]}} </td-->
+						<td> <a target="_blank" href="http://map.daum.net/link/map/{{station_info['station_name'][i]}},{{station_info['station_xy'][i][1]}},{{station_info['station_xy'][i][0]}}">지도보기</a> </td>
+						<td> <a href="bus_select?station_id={{station_info['station_id'][i]}}">선택</a> </td>
+					</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				{% include 'common/common_footer.html' %}
+			</div>
+		</div>
+	</body>
+</html>

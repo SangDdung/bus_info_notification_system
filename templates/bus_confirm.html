@@ -1,0 +1,42 @@
+<html>
+	<head>
+		{% include 'common/common_head.html' %}
+	</head>
+	<body>
+		<div data-role="page" id="page1">
+			<div data-role="header">
+				{% include 'common/common_header.html' %}
+			</div>
+			<div data-role="content">
+				<img src="/static/img/icon/Info.png">
+				<span class="text-hot">STEP 3. 확인 및 별명 부여</span>
+				<hr>
+				<form method="post" action="bus_regist">
+					<div data-role="fieldcontain">
+						<label for="name">별명</label>
+						{% if name %}
+						<input type="text" name="name" id="name" value={{name}} readonly>
+						{% else %}
+						<input type="text" name="name" id="name">
+						{% endif %}
+						<label for="bus_name">버스 번호</label>
+						<input type="text" name="bus_name" id="bus_name" value="{{bus_name}}" readonly>
+						<label for="station_id">정류소ID</label>
+						<input type="text" name="station_id" id="station_id" value="{{station_id}}" readonly>
+						<label for="bus_id">버스ID</label>
+						<input type="text" name="bus_id" id="bus_id" value="{{bus_id}}" readonly>
+					</div>
+					{% if name %}
+					* 저장된 노선입니다.
+					{% else %}
+					<label for="save_tf">저장하기</label><input type="checkbox" name="save_tf" id="save_tf" data-mini="true">
+					{% endif %}
+					<input type="submit" data-role="button" value="확인">
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				{% include 'common/common_footer.html' %}
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+	<head>
+		{% include 'common/common_head.html' %}
+	</head>
+	<body>
+		<div data-role="page" id="page1">
+			<div data-role="header">
+				{% include 'common/common_header.html' %}
+			</div>
+			<div data-role="content">
+				<img src="/static/img/icon/Info.png">
+				<span class="text-hot">로그인을 해 주세요</span>
+				<hr>
+				<form method="post" action="login">
+					<div data-role="fieldcontain">
+						<label for="id">기기 ID</label>
+						<input type="text" name="id" id="id">
+						<label for="pw">비밀번호</label>
+						<input type="password" name="pw" id="pw">
+					</div>
+					<input type="submit" data-role="button" value="로그인">
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				{% include 'common/common_footer.html' %}
+			</div>
+		</div>
+	</body>
+</html>

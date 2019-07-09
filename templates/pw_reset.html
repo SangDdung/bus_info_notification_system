@@ -1,0 +1,33 @@
+<html>
+	<head>
+		{% include 'common/common_head.html' %}
+	</head>
+	<body>
+		<div data-role="page" id="page1">
+			<div data-role="header">
+				{% include 'common/common_header.html' %}
+			</div>
+			<div data-role="content">
+				<img src="/static/img/icon/Info.png">
+				<span class="text-hot">비밀번호 변경</span>
+				<hr>
+				<form method="post" action="pw_reset_proc">
+					<div data-role="fieldcontain">
+						<label for="id">기기 ID</label>
+						<input type="text" name="id" id="id" value="{{device_id}}" readonly>
+						<label for="now_pw">현재 비밀번호</label>
+						<input type="password" name="now_pw" id="now_pw">
+						<label for="next_pw">바꿀 비밀번호</label>
+						<input type="password" name="next_pw" id="next_pw">
+						<label for="next_pw2">바꿀 비밀번호 확인</label>
+						<input type="password" name="next_pw2" id="next_pw2">
+					</div>
+					<input type="submit" data-role="button" value="확인">
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				{% include 'common/common_footer.html' %}
+			</div>
+		</div>
+	</body>
+</html>

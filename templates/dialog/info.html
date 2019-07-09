@@ -1,0 +1,24 @@
+<html>
+	<head>
+		{% include 'common/common_head.html' %}
+	</head>
+	<body>
+		<div data-role="page" id="page1">
+			<div data-role="header">
+				{% include 'common/common_header.html' %}
+			</div>
+			<div data-role="content">
+				<img src="/static/img/icon/Info.png">
+				<span class="text-hot">Info</span>
+				<hr>
+				<div class="ui-body ui-body-a">
+					<p>{{info_msg|safe}}</p>
+				</div>
+				<a data-role="button" href="{{redirect_page}}">확인</a>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				{% include 'common/common_footer.html' %}
+			</div>
+		</div>
+	</body>
+</html>

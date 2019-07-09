@@ -1,0 +1,79 @@
+<html>
+	<head>
+		{% include 'common/common_head.html' %}
+	</head>
+	<body>
+		<div data-role="page" id="page1">
+			<div data-role="header">
+				{% include 'common/common_header.html' %}
+			</div>
+			<div data-role="content">
+				<div class="ui-body ui-body-a">
+					<h3><img src="static/img/icon/Info.png"> 기기 정보</h3>
+					<p>
+						<table class="table-info">
+							<tr>
+								<td>기기 ID</td>
+								<td>{{device_id}}</td>
+							</tr>
+							<tr>
+								<td>기기 상태</td>
+								<td>
+									{% if device_regi_status %}
+										등록됨
+									{% else %}
+										등록되지 않음
+									{% endif %}
+								</td>
+							</tr>
+						</table>
+					</p>
+				</div>
+			<br>
+				<div class="ui-body ui-body-a">
+					<h3><img src="static/img/icon/Info.png"> 버스 등록 정보</h3>
+					<p>
+						{% if device_regi_status %}
+						<table class="table-info">
+							<tr>
+								<td>별명</td>
+								<td>{{name}}</td>
+							</tr>
+							<tr>
+								<td>버스 번호</td>
+								<td>{{bus_name}}</td>
+							</tr>
+							<tr>
+								<td>버스 도착 정보</td>
+								<td>{{bus_time_str}}</td>
+							</tr>
+							<tr>
+								<td>설정 시각 정보</td>
+								<td>수동</td>
+							</tr>
+						</table>
+						{% else %}
+							기기가 등록되지 않았습니다. 먼저 등록을 진행하여 주십시오.
+						{% endif %}
+					</p>
+				</div>
+			<br>
+				<div class="ui-body ui-body-a">
+					<h3><img src="static/img/icon/Info.png"> 기기 등록 설정</h3>
+					<p>
+						<a data-role="button" data-inline="true" data-mini="true" href="pw_reset">비밀번호 변경</a> 
+						<br>
+						<a data-role="button" data-inline="true" data-mini="true" href="station_search">버스 등록하기</a> 
+						{% if device_regi_status %}
+						<a data-role="button" data-inline="true" data-mini="true" href="bus_delete">버스정보 삭제</a> 
+						{% endif %}
+						<br>
+						<!--a data-role="button" data-inline="true" data-mini="true" href="bus_delete">자동 설정 시각</a--> 
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				{% include 'common/common_footer.html' %}
+			</div>
+		</div>
+	</body>
+</html>

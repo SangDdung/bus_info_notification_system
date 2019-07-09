@@ -1,0 +1,40 @@
+<html>
+	<head>
+		{% include 'common/common_head.html' %}
+	</head>
+	<body>
+		<div data-role="page" id="page1">
+			<div data-role="header">
+				{% include 'common/common_header.html' %}
+			</div>
+			<div data-role="content">
+				<img src="/static/img/icon/Info.png">
+				<span class="text-hot">정류소 검색</span>
+				<hr>
+				<form method="get" action="station_select">
+					<input type="search" name="station_name" id="station_name" placeholder="정류소 이름을 입력하세요.">
+					<input type="submit" data-role="button" value="검색하기">
+				</form>
+				<hr>
+				<img src="/static/img/icon/Info.png">
+				<span class="text-hot">저장된 목록</span>
+				<hr>
+				<form method="get" action="bus_select_confirm">
+					<div data-role="fieldcontain">
+						<label for="select_name" class="select">별명</label>
+						<select name="select_name" id="select_name" data-native-menu="false">
+							<option>별명을 선택하세요</option>
+							{% for db_name in db_names %}
+							<option value="{{db_name[0]}}">{{db_name[0]}}</option>
+							{% endfor %}
+					</select>
+					</div>
+					<input type="submit" data-role="button" value="선택">
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				{% include 'common/common_footer.html' %}
+			</div>
+		</div>
+	</body>
+</html>
